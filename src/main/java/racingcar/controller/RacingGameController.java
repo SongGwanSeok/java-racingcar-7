@@ -18,14 +18,13 @@ public class RacingGameController {
     public void run() {
         RacingGame racingGame = new RacingGame(inputView.readCarNames());
         TryRound tryRound = new TryRound(inputView.readTryRound());
-        int currentRound = 0;
         outputView.printStartGame();
 
-        while (tryRound.isNotFinish(currentRound)) {
+        while (tryRound.isNotFinish()) {
             String currentProceedResult = racingGame.proceedRound();
             outputView.printCurrentResult(currentProceedResult);
 
-            currentRound++;
+            tryRound.moveToNextRound();
         }
 
         outputView.printWinner(racingGame.findWinner());

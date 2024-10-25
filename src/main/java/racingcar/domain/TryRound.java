@@ -4,11 +4,13 @@ public class TryRound {
 
     private static final String POSITIVE_INTEGER_REGEX = "^[1-9]\\d*$";
 
-    private final int tryCount;
+    private final int finishRound;
+    private int currentRound;
 
     public TryRound(String invalidTryCount) {
         validatePositiveNumber(invalidTryCount);
-        this.tryCount = Integer.parseInt(invalidTryCount);
+        this.finishRound = Integer.parseInt(invalidTryCount);
+        this.currentRound = 1;
     }
 
     private void validatePositiveNumber(String invalidTryCount) {
@@ -17,7 +19,11 @@ public class TryRound {
         }
     }
 
-    public boolean isNotFinish(int currCount) {
-        return tryCount > currCount;
+    public boolean isNotFinish() {
+        return finishRound >= currentRound;
+    }
+
+    public void moveToNextRound() {
+        currentRound++;
     }
 }

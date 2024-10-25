@@ -1,31 +1,16 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import racingcar.util.RandomNumberGenerator;
 
 class PositionTest {
 
     @Nested
-    @DisplayName("position을 생성할 때")
-    class whenCreatePosition {
-
-        @Test
-        @DisplayName("성공적으로 생성한다.")
-        void SuccessfullyCreatePosition() {
-            //when then
-            assertDoesNotThrow(() -> new Position(new RandomNumberGenerator()));
-        }
-    }
-
-    @Nested
-    @DisplayName("move 메서드를 실행시킬 때")
+    @DisplayName("move() 메서드를 실행시킬 때")
     class whenMove {
 
         @ParameterizedTest

@@ -5,7 +5,8 @@ public class RacingGame {
     private final Cars cars;
 
     public RacingGame(String invalidCarNames) {
-        cars = new Cars(invalidCarNames);
+        CarNamesSplitter carNamesSplitter = new CarNamesSplitter();
+        cars = new Cars(carNamesSplitter.split(invalidCarNames));
     }
 
     public String proceedRound() {
